@@ -1,9 +1,14 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { HomePage } from "./pages/HomePage";
 import { Settings } from "./pages/Settings";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, NavigationProp } from "@react-navigation/native";
 
-const Stack = createStackNavigator();
+type TScreenDefinitions = {
+    Home: undefined;
+    Settings: undefined;
+}
+
+const Stack = createStackNavigator<TScreenDefinitions>();
 
 export function AppRoutes() {
   return (
@@ -15,3 +20,5 @@ export function AppRoutes() {
     </NavigationContainer>
   );
 }
+
+export type TNavigationScreenProps = NavigationProp<TScreenDefinitions>
